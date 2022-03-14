@@ -73,12 +73,18 @@ const requestListener = async function (req, res) {
     }
   </style></head>
 <body>
-  <h3>total: ${data.length}</h3>
+  <h3>С деньгами: ${data.length}</h3>
   <table>
   <tr>
-  <th>Address</th>
+  <th>Остаток</th>
+  <th>Адрес</th>
   </tr>
-    ${data.map((p) => `<tr><td>${p.address}</td></tr>`).join("")}
+    ${data
+      .map(
+        (p) =>
+          `<tr><td>${p.amount}</td><td><a href="yandexmaps://maps.yandex.ru/?ll=${p.location.lat},${p.location.lng}">${p.address}</a></td></tr>`
+      )
+      .join("")}
   </table>
 </body>
   `;

@@ -9,6 +9,7 @@
     "phin": "^3.6.1"
   },
   "scripts": {
-    "debug": "nodemon index.js"
+    "debug": "nodemon index.js",
+    "start": "node index.js"
   }
 }

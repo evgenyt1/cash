@@ -61,6 +61,7 @@ async function aaa() {
 const http = require("http");
 
 const requestListener = async function (req, res) {
+  console.log("request");
   const data = await aaa();
 
   const body = `
@@ -89,6 +90,8 @@ const requestListener = async function (req, res) {
 
 const server = http.createServer(requestListener);
 server.listen(8080);
+
+console.log("server started");
 
 // import jsonQuery from 'json-query'
 

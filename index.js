@@ -85,7 +85,7 @@ const requestListener = async function (req, res) {
     ${data
       .map(
         (p) =>
-          `<tr><td>${p.amount}</td><td><a href="yandexmaps://maps.yandex.ru/?ll=${p.location.lat},${p.location.lng}">${p.address}</a></td></tr>`
+          `<tr><td>${p.amount}</td><td><a href="yandexmaps://maps.yandex.ru/?ll=${p.location.lng},${p.location.lat}">${p.address}</a></td></tr>`
       )
       .join("")}
   </table>

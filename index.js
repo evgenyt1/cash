@@ -66,6 +66,7 @@ const requestListener = async function (req, res) {
 
   const body = `
   <head><title>Банкоматы</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
   table {border-collapse: collapse;}
     td, th {
@@ -73,7 +74,9 @@ const requestListener = async function (req, res) {
     }
   </style></head>
 <body>
-  <h3>С деньгами: ${data.length}</h3>
+  <h3>С деньгами: ${
+    data.length
+  } <a href="https://www.tinkoff.ru/maps/atm/?currency=USD&amount=5000&latitude=55.737499112357234&longitude=37.68957253491211&zoom=11">ссылка на тинькоф</a></h3>
   <table>
   <tr>
   <th>Остаток</th>

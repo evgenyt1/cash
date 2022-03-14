@@ -48,19 +48,43 @@ async function aaa() {
 
   res = res.filter((r) => r.amount > 100);
 
-  console.log(res);
-  console.log(res.length);
+  // console.log(res);
+  // console.log(res.length);
+
+  return res;
 
   // console.log(res);
 }
 
-aaa();
+// aaa();
 
 const http = require("http");
 
-const requestListener = function (req, res) {
-  res.writeHead(200);
-  res.end("Hello, World!");
+const requestListener = async function (req, res) {
+  const data = await aaa();
+
+  const body = `
+  <head><title>Банкоматы</title>
+  <style>
+  table {border-collapse: collapse;}
+    td, th {
+      border: solid 1px;
+    }
+  </style></head>
+<body>
+  <h3>total: ${data.length}</h3>
+  <table>
+  <tr>
+  <th>Address</th>
+  </tr>
+    ${data.map((p) => `<tr><td>${p.address}</td></tr>`).join("")}
+  </table>
+</body>
+  `;
+
+  res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+  res.write(body, "utf-8");
+  res.end();
 };
 
 const server = http.createServer(requestListener);

@@ -1,0 +1,14 @@
+{
+  "name": "cash",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "json-query": "^2.2.2",
+    "nodemon": "^2.0.15",
+    "phin": "^3.6.1"
+  },
+  "scripts": {
+    "debug": "nodemon index.js"
+  }
+}
